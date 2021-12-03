@@ -81,7 +81,11 @@ namespace AdventOfCode2021.Day2
             var submarinePosition = new Position(0, 0);
             foreach (var instruction in instructions)
             {
-                var (x, y, aim) = instruction.Direction switch
+                (
+                    submarinePosition.x,
+                    submarinePosition.y,
+                    submarinePosition.aim
+                ) = instruction.Direction switch
                 {
                     Direction.Down => (
                         submarinePosition.x,
@@ -109,9 +113,6 @@ namespace AdventOfCode2021.Day2
                         submarinePosition.aim
                     )
                 };
-                submarinePosition.x = x;
-                submarinePosition.y = y;
-                submarinePosition.aim = aim;
             }
             return submarinePosition.x * submarinePosition.y;
         }

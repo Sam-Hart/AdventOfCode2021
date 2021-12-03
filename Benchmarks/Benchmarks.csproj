@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <OutputType>Exe</OutputType>
+    <Configuration>Release</Configuration>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="**/Inputs/*.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.12.1" Condition="'$(OS)' == 'Windows_NT'" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../AdventOfCode2021/AdventOfCode2021.csproj" />
+  </ItemGroup>
+
+</Project>
