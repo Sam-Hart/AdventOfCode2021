@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AdventOfCode2021.Day2
 {
-    public enum Direction
+    enum Direction
     {
         Forward,
         Down,

@@ -24,7 +24,7 @@ namespace Tests.Day2
             var challengeInput = assembly.GetManifestResourceStream(
                 "Tests.Day2.Inputs.ChallengeInput.txt"
             );
-            Assert.Equal(150, Problem.Part1(challengeInput));
+            Assert.Equal(1990000, Problem.Part1(challengeInput));
         }
 
         [Fact]
