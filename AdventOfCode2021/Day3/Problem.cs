@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Numerics;
 
 namespace AdventOfCode2021.Day3
 {
@@ -57,7 +56,7 @@ namespace AdventOfCode2021.Day3
                 var onesColumns = GatherOnesCounts(candidates);
                 var onesColumnsIndex = maxBits - i - 1;
                 var count = onesColumns.GetValueOrDefault(onesColumnsIndex);
-                var bit = type switch
+                var searchBit = type switch
                 {
                     RatingType.Oxygen => count >= halfNumbers ? 1 : 0,
                     RatingType.CO2 => count >= halfNumbers ? 0 : 1,
@@ -65,7 +64,7 @@ namespace AdventOfCode2021.Day3
                 };
                 var mask = 1 << onesColumnsIndex;
                 candidates = candidates
-                    .Where(x => (x & mask) == (bit == 1 ? mask : 0));
+                    .Where(x => (x & mask) == (searchBit == 1 ? mask : 0));
             }
 
             return candidates.ElementAt(0);
